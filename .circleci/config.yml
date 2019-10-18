@@ -33,7 +33,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # run tests!
+      # standard lint
+      - run: npm run lint
+
+      # unit test
       - run: npm test
 
       # login to dockerhub
