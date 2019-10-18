@@ -80,9 +80,9 @@ docker stack deploy --compose-file docker-compose.yml app
     * Database Security
 * Docker
     * ~~Dockerized App and Database~~
-    * ~~Docker Swarm~~
-    * CI/CD
-        * CicleCI Build:DockerHub Deploy:Docker Swarm
+    * ~~Try Docker Swarm~~
+    * ~~CI/CD~~
+        * ~~CicleCI Build:DockerHub Deploy:Docker Swarm~~
 * Testing
     * Controller Unit Testing
     * ~~API Testing~~
