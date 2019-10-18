@@ -1,0 +1,51 @@
+{
+  "name": "customermicroservice",
+  "version": "1.0.0",
+  "description": "customer information",
+  "main": "server.js",
+  "scripts": {
+    "start": "babel-node server.js",
+    "watch": "nodemon --exec npm start",
+    "test": "mocha --require @babel/register 'tests/unit/*.js' --timeout 10000",
+    "api": "mocha --require @babel/register 'tests/api/*.js' --timeout 10000",
+    "lint": "node_modules/.bin/standard --fix"
+  },
+  "keywords": [
+    "express.js",
+    "mongoDB",
+    "jwt",
+    "mircoservice",
+    "infrastructure",
+    "documentation",
+    "testing",
+    "domain driven design"
+  ],
+  "author": "john timothy ama",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "express-winston": "^4.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.4",
+    "uuid": "^3.3.3",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/plugin-transform-runtime": "^7.6.2",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@babel/runtime": "^7.6.3",
+    "aglio": "^2.3.0",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.1",
+    "nock": "^11.4.0",
+    "nodemon": "^1.19.3",
+    "standard": "^14.3.1",
+    "supertest": "^4.0.2"
+  }
+}
