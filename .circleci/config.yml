@@ -36,3 +36,11 @@ jobs:
       # run tests!
       - run: npm test
 
+      # build the application image
+      - run: docker build -t jtjohntimothy/customer-microservice:latest .
+
+      # push built image
+      - run: docker push jtjohntimothy/customer-microservice:latest
+
+      # TODO: ssh to environment machine and docker pull built image
+
