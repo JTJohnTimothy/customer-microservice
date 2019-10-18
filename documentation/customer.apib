@@ -1,0 +1,81 @@
+FORMAT: 1A
+
+HOST: 0.0.0.0:3000
+
+# Customer
+
+<!-- NOTES: -->
+<!-- aglio -i ./documentation/customer.apib --theme-template triple -o ./documentation/output/customer.html -->
+
+## Customer Api Documentation
+
+### Get Customer By Id [GET /api/v1/customers/{customerId}]
++ Request  (application/json)
+    + Headers
+
+                x-access-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.XXXXX
++ Parameters
+    + customerId: `364df88b-c7ab-481e-9af9-caedda38e523`
++ Response 200 (application/json)
+    + Attributes
+        - include Customer
+
+### Get All Customers [GET /api/v1/customers?page={page}&limit={limit}&sortField={sortField}&sortDirection={sortDirection}]
++ Request  (application/json)
+    + Headers
+
+                x-access-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.XXXXX
++ Parameters
+    + page: 1 (optional, number)
+    + limit: 10 (optional, number)
+    + sortField: email (optional, string)
+    + sortDirection: ASC (optional, string)
++ Response 200 (application/json)
+    + Attributes
+        - results (array[Customer])
+        - include Pagination
+
+### Register Customer [POST /api/v1/customers]
++ Request  (application/json)
+    + Headers
+
+                x-access-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.XXXXX
++ Attributes
+    + include Customer
++ Response 200 (application/json)
+    + Attributes
+        - include Customer
+
+### Update Customer [PUT /api/v1/customers/{customerId}/]
++ Request  (application/json)
+    + Headers
+
+                x-access-token: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.XXXXX
++ Attributes
+    + include Customer
++ Parameters
+    + customerId: `364df88b-c7ab-481e-9af9-caedda38e523`
++ Response 200 (application/json)
+    + Attributes
+        - include Customer
+
+# Data Structures
+
+## Customer (object)
+- firstName: `John` (string)
+- middleName: `Timothy` (string)
+- lastName: `Ama` (string)
+- birthDate: `1989-05-12T16:00:00.000Z` (string)
+- occupation: `Software Engineer` (string)
+- email: `johntimothyama34@gmail.com` (string)
+- gender: `Male` (string)
+- mobileNo: `202-555-0160` (string)
+- address: `675 Arcadia Lane Hixson, TN 37343` (string)
+- maritalStatus: `Married` (string)
+- customerId: `0334611f-b681-4285-93fd-7e1252ecca48` (string)
+
+## Pagination
+- total: 1 (number) - total param
+- limit: 10 (number) - limit param
+- page: 1 (number) - page param
+- pages: 1 (number) - pages param
