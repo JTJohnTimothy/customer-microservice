@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+  customer-microservice:
+    image: customer-microservice
+    container_name: customer-microservice-container
+    build: .
+    volumes:
+      - customer-logs:/log/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - mongodb
+    networks:
+      - default
+    environment:
+      - NODE_ENV=staging
+
+  mongodb:
+    container_name: mongo-customer-container
+    # TODO: setup mongo with authentication
+    # command: mongod --auth
+    image: mongo:4.0.6
+    volumes:
+      - customerdb-data:/data/db
+      - customerconfigdb:/data/configdb
+    ports:
+      - 27001:27017
+    networks:
+      - default
+networks:
+    default:
+
+volumes:
+  customer-logs:
+  customerdb-data:
+  customerconfigdb:
+
+
