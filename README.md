@@ -11,6 +11,12 @@ This microservice will serve as a customer information provider.
 * [__MongoDb__](https://www.mongodb.com/) - noSQL for database
 * [__Winston__](https://www.npmjs.com/package/winston) - node console and file logger
 
+## Testing
+* [__Mocha__](https://mochajs.org/) - test framework running on node.js
+* [__Chai__](https://www.chaijs.com/) - assertion library for node.js
+* [__Supertest__](https://www.npmjs.com/package/supertest) - http testing
+* [__Sinon__](https://sinonjs.org/) - test spies, stubs and mocks
+
 ## API Documentation
 See customer API documentation [here](./documentation/output/customer.html).
 
