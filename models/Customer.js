@@ -17,3 +17,14 @@ const customerSchema = new Schema({
 }, { timestamps: true })
 
 export default mongoose.model('customer', customerSchema)
+
+/**
+ * Additional information:
+ * Dependents
+ *  Spouse
+ *  Children
+ * Business
+ * Income
+ *
+ * Others..
+ */
