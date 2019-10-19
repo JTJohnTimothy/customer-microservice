@@ -10,6 +10,7 @@ This microservice will serve as a customer information provider.
 * [__Mongoose__](http://mongoosejs.com/) - mongodb object modeling
 * [__MongoDb__](https://www.mongodb.com/) - noSQL for database
 * [__Winston__](https://www.npmjs.com/package/winston) - node console and file logger
+* [__Standard__](https://standardjs.com/) - lint checker
 
 ## Testing
 * [__Mocha__](https://mochajs.org/) - test framework running on node.js
@@ -24,6 +25,7 @@ See customer API documentation [here](./documentation/output/customer.html).
 Mongodb Collections
 
 * [__Customer__](./models/Customer.js) - basic customer information
+* [__Priorities__](./models/Priority.js) - customer priorities
 
 ## Local Development
 ### Prerequisite
@@ -54,7 +56,7 @@ $ npm run lint
 * [__Docker__](https://www.docker.com/)
 * [__Docker Compose__](https://docs.docker.com/compose/)
 
-### Installation, Testing, Linting (see Dockerfile)
+### Installation, Testing, Linting (see [Dockerfile](./dockerfile))
 ```
 $ docker-compose build
 ```
@@ -62,7 +64,7 @@ $ docker-compose build
 $ docker-compose build --no-cache
 ```
 
-### Development (see docker-compose.yml)
+### Development (see [docker-compose.yml](./docker-compose.yml))
 ```
 $ docker-compose up
 ```
@@ -90,19 +92,27 @@ docker stack deploy --compose-file docker-compose.yml app
     * ~~CI/CD~~
         * ~~CicleCI Build:DockerHub Deploy:Docker Swarm~~
 * Testing
-    * Controller Unit Testing
+    * ~~Unit Testing~~
     * ~~API Testing~~
 * Infrastructure
     * ~~Logging~~
     * ~~Standard Lint~~
-    * Ready for monitoring service
-    * CorrelationId
+    * Ready for monitoring
+        * event reporting
+        * event tracing through correlationId
+        * Platform monitoring
+            * see [Prometheous](https://prometheus.io/)
+        * Application monitoring
     * ~~Error handling~~
     * ~~JWT API Security~~
     * API Permissions
+    * Microservice Intercommunication
+        * see [RabbitMQ](https://www.rabbitmq.com/)/[Kafka](https://kafka.apache.org/intro)
+    * Distributed Rollback
+        * See [Saga Pattern](https://microservices.io/patterns/data/saga.html)
 * Documentation
     * ~~README.md~~
     * ~~API Documentation~~
-    * Sequence Interaction Diagram
-    * High Level Tech Architecture
-    * Study DDD Approach
+    * [Sequence Interaction Diagram](./notes/business/QuotationWorkflow.md)
+    * [High Level Tech Architecture Diagram](./notes/software/Architecture.md)
+    * [Study DDD Approach](./notes/software/DDD)
