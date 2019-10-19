@@ -1,0 +1,19 @@
+Identify Customer Priorities
+  - Categorize Customer
+    - Single
+    - Married no children
+    - Married with children
+    - Empty nest
+    - Retirees
+  - Priorities List
+    - Health
+    - Life
+    - Savings
+    - Investment
+    - Education
+  - Preferences
+    - Insurance Coverage
+    - Payment Frequency
+  - Surveys
+    - Health related
+    - Investment risk

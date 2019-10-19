@@ -1,0 +1,30 @@
+Notes
+- User Authorization Domain
+  - Customer Role SubDomain
+    - Customer Details and Priorities
+  - Agent/Advisor Role SubDomain
+    - on site personnel
+    - Access to only Released Product
+    - Assign Agent to Customer
+  - Insurer Role SubDomain
+    - Backoffice
+    - Access to all registered customers
+    - Access to all Products
+- Product Domain
+  - Show newly deployed products
+  - Product Categories
+    - Life
+    - Health
+    - Investment
+    - Savings
+    - Eduction
+  - FNA
+- Insurance Domain
+  - customers that availed insurance
+  - Insured customers assisted by agents
+- Payment Domain
+  - online payment gateway
+  - payment tracker
+- Notification Domain
+  - notify internal for newly registered customers
+  - notify customers new product

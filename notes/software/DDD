@@ -1,0 +1,53 @@
+https://medium.com/design-and-tech-co/implementing-domain-driven-design-for-microservice-architecture-26eb0333d72e
+DDD Review
+Intro
+    microservice is a loosely coupled service with a single responsibility principle
+    is a software development approach around solving complex domain model; the solution revolves around the business model by connecting the implementation to the core business concepts
+    terminologies -> domain logic, subdomains, bounded contexts, context maps, domain models, and ubiquitous language
+    Domain-Driven Design is a framework based on strategic value, and it’s about mapping business domain concepts into software artifacts.
+    Microservices
+      Scalability
+      Availability
+      Resiliency
+      Independent, autonomous
+      Decentralized governance
+      Failure isolation
+      Auto-Provisioning
+      Continuous delivery through DevOps
+1) Analyze Domain
+  A domain refers to real-world aspects of a solution (e.g., automobile, banking, mortgage, credit, debit accounts, credit cards, retails loans, content management, etc.)
+  For our microservices to successfully implemented it requires a clean separation of concern by applying some boundaries as suggested by Domain-Driven Design approach:
+    - Teams are usually working in certain business domains
+    - The business domain is the core focus of the team
+    - The granularity of a domain depends on the position of a team in the organization
+
+  A domain can be decomposed into subdomains
+    - Each domain can be structured in subdomains
+    - Mapping applications to domain and subdomains is a classical Enterprise Architecture approach
+    - Each subdomain can contain further subdomains
+    - Typical Black-and-Whitebox modelling
+    - There can be communication between various subdomains
+
+2) Define Bounded Contexts
+  In Domain Driven Design, a Context is defined as:
+        "The setting in which a word or a statement appears that determines its meaning"
+  When you explicitly define your bounded contexts, you can usually see whether you have elements of a model that are trying to expand multiple contexts. A bounded context is a conceptual boundary where a domain model is applicable.
+    - One team per Bounded Context
+    - Separate code repository for each Bounded Context
+    - Domain Model + DB Schema + UI + Web Services (API)
+    - Subdivide large domains into smaller contexts.
+    - Each context can have its own ubiquitous language and its own model.
+    - Bounded Contexts may share some domain aspects.
+3) Define entities, aggregates and services
+4) Identify Microservices
+    Each is focused on one task, a business capability (The Single Responsibility principle: Each microservice implements only one business responsibility from the bounded domain context. From a software point of view, the system needs to be decomposed into multiple components where each component becomes a microservice. Microservices have to be lightweight, in order to facilitate smaller memory footprints and faster startup times.)
+    Each service has its database to be decoupled from other services.
+
+  AMQP
+    https://microservices.io/patterns/data/saga.html
+    How to maintain data consistency across services?
+    Implement each business transaction that spans multiple services as a saga.
+    If a local transaction fails because it violates a business rule then the saga executes a series of compensating transactions that undo the changes that were made by the preceding local transactions.
+
+  Backend for frontend (BFF)
+    Each dispatcher is a back end for an external front end, typically a GUI The same team develops each back end and front-end pair; Use the same or compatible languages in the pair.
