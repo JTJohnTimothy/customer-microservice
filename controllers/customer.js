@@ -21,15 +21,41 @@ export default {
 
   /**
    * get all customers
-   * TODO: add search sort pagination
    */
   getCustomers: async function (req, res, next) {
-    try {
-      const customers = await Customer.find()
-      res.send(customers)
-    } catch (error) {
-      return next(error)
+    let { page, limit, sortDirection, sortField } = req.query
+    const { searchTerm, searchKey } = req.query
+    page = Number.isInteger(parseInt(page)) ? parseInt(page) : 1
+    limit = Number.isInteger(parseInt(limit)) ? parseInt(limit) : 10
+    sortDirection = sortDirection === 'DESC' ? -1 : 1 // default to ASC
+    sortField = sortField || 'name'
+    // if no key value passed
+    const query = {}
+    // just add key value again to object for multiple field sort
+    const sort = { [sortField]: sortDirection }
+    const skip = (limit * (page - 1))
+    if (searchKey !== '' || searchTerm !== '') {
+      // just use $match with an array of $or with multiple searchKey = searchTerm
+      query[searchKey] = { $regex: searchTerm }
     }
+
+    Promise.all([
+      // search -> sort -> paginate
+      Customer.find(query).sort(sort).skip(skip).limit(limit),
+      // get total
+      Customer.find().count()
+    ]).then(results => {
+      const [customers, total] = results
+      res.send({
+        results: customers,
+        pagination: {
+          totalItems: total,
+          currentPage: page, // page
+          pageSize: limit, // limit
+          totalPages: Math.ceil(total / limit)
+        }
+      })
+    }).catch(error => next(error))
   },
 
   /**
