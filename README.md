@@ -91,6 +91,7 @@ docker stack deploy --compose-file docker-compose.yml app
     * ~~Try Docker Swarm~~
     * ~~CI/CD~~
         * ~~CicleCI Build:DockerHub Deploy:Docker Swarm~~
+* Debug Mode
 * Testing
     * ~~Unit Testing~~
     * ~~API Testing~~
